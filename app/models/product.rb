@@ -3,4 +3,6 @@ class Product < ActiveRecord::Base
 	validates :category, presence: true
 	validates :target_group, presence: true
 	validates :size, presence: true
+
+	mount_uploader :image, ImageUploader
 end
