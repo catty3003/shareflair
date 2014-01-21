@@ -14,11 +14,14 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       	<ul class="nav navbar-nav">
 		      <li class="link"><%= link_to "Suchen", products_path %></li>
-		    	<li class="link"><%= link_to "Inserieren", new_product_path %></li>
-		    	<li class="link"><%= link_to "About", home_about_path %></li>
-		    	<form class="navbar-form navbar-left">
-						<input class="form-control col-lg-8" type="text" placeholder="Search"></input>
-					</form>
+		      <li class="link"><%= link_to "Inserieren", new_product_path %></li>
+              <li class="link"><%= link_to "User" %></li>
+		      <li class="link"><%= link_to "About", home_about_path %></li>
+	
+
+              <%= form_tag( {controller: "products", action: "index"}, method: "get", class: "navbar-form navbar-left") do %>  
+                    <%= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search"%>
+                  <% end %>
 
         </ul>
 
