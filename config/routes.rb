@@ -1,4 +1,9 @@
 Shareflair::Application.routes.draw do
+  get "home/index"
+  get "home/search"
+  get "home/insert"
+  get "home/user"
+  get "home/about"
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
