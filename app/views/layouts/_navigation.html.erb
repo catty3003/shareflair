@@ -1,0 +1,28 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        <a class="navbar-brand" <%= link_to "Share Flair", :controller => "home", :action => "index" %></a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      	<ul class="nav navbar-nav">
+		      <li class="link"><%= link_to "Suchen", :controller => "products", :action => "index" %></li>
+		    	<li class="link"><%= link_to "Inserieren", :controller => "products", :action => "new" %></li>
+		    	<li class="link"><%= link_to "User", :controller => "home", :action => "user" %></li>
+		    	<li class="link"><%= link_to "About", :controller => "home", :action => "about" %></li>
+		    	<form class="navbar-form navbar-left">
+						<input class="form-control col-lg-8" type="text" placeholder="Search"></input>
+					</form>
+
+        
+        </div>
+    </div>
+</div
+
