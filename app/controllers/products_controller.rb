@@ -67,6 +67,9 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+      if @product.user_id != current_user.id
+        redirect_to products_url, alert: 'You can edit only your own Products.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
