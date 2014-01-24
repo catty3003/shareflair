@@ -42,7 +42,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @product.user_id %>
+  <%= @product.user.username %>
 </p>
 
 <%= image_tag @product.image_url(:normal) if @product.image? %>
