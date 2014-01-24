@@ -8,9 +8,5 @@ class Product < ActiveRecord::Base
 
 	mount_uploader :image, ImageUploader
 
-	def find_man
-		Product.all.find_all_by_category(Gentlemen) 
-	end
-		
 	
 end

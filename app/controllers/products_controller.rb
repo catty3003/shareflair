@@ -68,21 +68,28 @@ class ProductsController < ApplicationController
   end
 
   def lady
+    @products = Product.where(:target_group => "Ladies")
   end
 
   def man
+    @products = Product.where(:target_group => "Gentlemen")
   end
 
+
   def girl
+    @products = Product.where(:target_group => "Girls")
   end
 
   def boy
+    @products = Product.where(:target_group => "Boys")
   end
 
   def baby
+    @products = Product.where(:target_group => "Babies")
   end
 
   def last
+    @products = Product.last
   end
 
 
