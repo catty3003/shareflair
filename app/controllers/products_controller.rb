@@ -89,7 +89,8 @@ class ProductsController < ApplicationController
   end
 
   def last
-    @products = Product.last
+    @products = Product.last(3)
+    
   end
 
 
