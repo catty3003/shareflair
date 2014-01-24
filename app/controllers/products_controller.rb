@@ -67,6 +67,25 @@ class ProductsController < ApplicationController
     end
   end
 
+  def lady
+  end
+
+  def man
+  end
+
+  def girl
+  end
+
+  def boy
+  end
+
+  def baby
+  end
+
+  def last
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

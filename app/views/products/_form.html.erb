@@ -33,7 +33,7 @@
     <div class="form-group has-success">
       <label class="control-label" for="inputSuccess"><%= f.label :target_group %></label>
 
-      <%= f.select :target_group, ["Ladies", "Girls", "Gentlemen", "Boys", "Babies" ], {:selected => "Ladies"}, class: "form-control"  %>
+      <%= f.select :target_group, ["Ladies", "Girls", "Gentlemen", "Boys", "Babies" ], {:include_blank => true}, class: "form-control"  %>
     </div>
     <div class="form-group has-success">
       <label class="control-label" for="inputSuccess"><%= f.label :size %></label>

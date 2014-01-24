@@ -1,11 +1,17 @@
 Shareflair::Application.routes.draw do
   
+  
   devise_for :users
   get "home/index"
-  get "home/search"
   get "home/insert"
   get "home/user"
   get "home/about"
+  get "products/lady"
+  get "products/man"
+  get "products/girl"
+  get "products/boy"
+  get "products/baby"
+  get "products/last"
   resources :products
   
   # The priority is based upon order of creation: first created -> highest priority.
