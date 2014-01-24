@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product_identification, only: [ :edit, :update, :destroy]
   
 
   # GET /products
@@ -69,13 +70,16 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
+       @product = Product.find(params[:id])
+    end
+
+
+def set_product_identification
       @product = Product.find(params[:id])
       if @product.user_id != current_user.id
         redirect_to products_url, alert: 'You can edit oder delete only your own Products.'
       end
     end
-
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :category_id, :target_group, :size, :color, :price, :duration, :description, :user_id, :image, :remote_image_url)
