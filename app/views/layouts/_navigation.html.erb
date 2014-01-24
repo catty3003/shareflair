@@ -17,6 +17,13 @@
 		      <li class="link"><%= link_to "Make Insertion", new_product_path %></li>
               <li class="link"><%= link_to "User" %></li>
 		      <li class="link"><%= link_to "About", home_about_path %></li>
+              <li>
+                <%= form_tag("/products", method: "get", class: "navbar-form navbar-left") do %>
+                  
+                  <%= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search"%>
+                <% end %>
+
+              </li> 
         </ul>
 
          <ul class="nav navbar-nav navbar-right">
