@@ -13,36 +13,34 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       	<ul class="nav navbar-nav">
-		      <li class="link"><%= link_to "Suchen", products_path %></li>
-		      <li class="link"><%= link_to "Inserieren", new_product_path %></li>
+		      <li class="link"><%= link_to "All Products", products_path %></li>
+		      <li class="link"><%= link_to "Make Insertion", new_product_path %></li>
               <li class="link"><%= link_to "User" %></li>
 		      <li class="link"><%= link_to "About", home_about_path %></li>
-	
-
-              <%= form_tag( {controller: "products", action: "index"}, method: "get", class: "navbar-form navbar-left") do %>  
-                    <%= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search"%>
-                  <% end %>
-
         </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+         <ul class="nav navbar-nav navbar-right">
+                    
+                
+
                 <% if user_signed_in? %>
-                <li>
-                    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-                </li>
-                <li>
-                    <%= link_to "Logged in as " + current_user.username, edit_user_registration_path %>  
-                </li>
-                <% else %>
-                <li>
-                    <%= link_to 'Login', new_user_session_path %>
-                </li>
-                <li>
-                    <%= link_to 'Sign up', new_user_registration_path %>
-                </li>
+                    <li>
+                        <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+                    </li>
+                    <li>
+                        <%= link_to "Logged in as " + current_user.username, edit_user_registration_path %>  
+                    </li>
+                    <% else %>
+                    <li>
+                        <%= link_to 'Login', new_user_session_path %>
+                    </li>
+                    <li>
+                        <%= link_to 'Sign up', new_user_registration_path %>
+                    </li>
                 <% end %>
             </ul>
         </div>
     </div>
-</div
+</div>
+
 
