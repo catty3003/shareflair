@@ -1,14 +1,14 @@
-<h1>Edit <%= resource_name.to_s.humanize %></h1>
+    <div class="col-lg-8 col-lg-offset-2">
+     <div class="well">
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <div class="form-group has-success">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="col-lg-8 col-lg-offset-2">
-   <div class="well">
-      <div class="panel panel-info">
-        <div class="panel-body">
+              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+              <%= devise_error_messages! %>
 
-        <div class="form-group has-success">
+
 
               <div class="form-group has-success"><%= f.label :email %><br />
               <%= f.email_field :email, :autofocus => true, class: "form-control"  %></div>
@@ -51,11 +51,16 @@
             <h3>Cancel my account</h3>
 
             <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger" %></p>
-
             
+            </div>
+          </div>
         </div>
+        <%= link_to "Back", :back %>
       </div>
     </div>
-    <%= link_to "Back", :back %>
+
+
+    
   </div>
 </div>
+       
