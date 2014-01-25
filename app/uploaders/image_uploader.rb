@@ -10,12 +10,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :normal do
-  process :resize_to_fit => [300, 300]
+  process :resize_to_fit => [750, 560]
   end
 
-  version :home_thumb do
-  process :resize_to_fit => [320, 150]
-  end
 
 
 

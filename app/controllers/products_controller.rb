@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+
   end
 
   # GET /products/new
@@ -104,9 +105,11 @@ class ProductsController < ApplicationController
 def set_product_identification
       @product = Product.find(params[:id])
       if @product.user_id != current_user.id
-        redirect_to products_url, alert: 'You can edit oder delete only your own Products.'
+        redirect_to product_path, alert: 'You can edit oder delete only your own Products.'
       end
-    end
+end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :category_id, :target_group, :size, :color, :price, :duration, :description, :user_id, :image, :remote_image_url)

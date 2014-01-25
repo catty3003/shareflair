@@ -1,51 +1,63 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category.name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Target group:</strong>
-  <%= @product.target_group %>
-</p>
+        <div class="row">
 
-<p>
-  <strong>Size:</strong>
-  <%= @product.size %>
-</p>
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                  <%= @product.title %>    <br>         
+                  <small>from User <%= @product.user.username %></small>
+                </h1>
+            </div>
 
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
+        </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+        <div class="row">
 
-<p>
-  <strong>Duration:</strong>
-  <%= @product.duration %>
-</p>
+            <div class="col-md-8">
+                <%= image_tag @product.image_url(:normal) if @product.image? %>
+            </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+            <div class="col-md-4">
+                <h3>Product Description</h3>
+                <p><%= @product.description %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @product.user.username %>
-</p>
+                <h3>Product Details</h3>
+                  <ul>
+                    <li>
+                      <strong>Category:</strong>
+                      <%= @product.category.name %>
+                    </li>
 
-<%= image_tag @product.image_url(:normal) if @product.image? %>
+                    <li>
+                      <strong>Target group:</strong>
+                      <%= @product.target_group %>
+                    </li>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+                    <li>
+                      <strong>Size:</strong>
+                      <%= @product.size %>
+                    </li>
+
+                    <li>
+                      <strong>Color:</strong>
+                      <%= @product.color %>
+                    </li>
+
+                    <li>
+                      <strong>Price:</strong>
+                      <%= @product.price %> (€) related to 
+                      <strong>Duration:</strong>
+                      <%= @product.duration %>
+                    </li>
+                  </ul>
+
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning btn-sm"  %> |
+<%= link_to 'Back', products_path, class: "btn btn-info btn-sm"  %> |
+
+<%= link_to 'Delete', @product, class: "btn btn-danger btn-sm",method: :delete, data: { confirm: 'Are you sure?' } %>
+
+            </div>
+
+        </div>
