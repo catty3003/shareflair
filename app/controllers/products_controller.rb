@@ -9,7 +9,8 @@ class ProductsController < ApplicationController
   def index
    
     s = "%#{params[:search]}%"
-    @products = Product.order(created_at: :desc).where("title like ? or description like ?", s, s  )
+    @products_active = Product.where(active: true).order(created_at: :desc).where("title like ? or description like ?", s, s  )
+    @products_inactive = Product.where(active: false).order(created_at: :desc).where("title like ? or description like ?", s, s  )
 
   end
 
@@ -69,29 +70,34 @@ class ProductsController < ApplicationController
   end
 
   def lady
-    @products = Product.where(:target_group => "Ladies")
+    @products_active = Product.where(:target_group => "Ladies", active: true)
+    @products_inactive = Product.where(:target_group => "Ladies", active: false)
+
   end
 
   def man
-    @products = Product.where(:target_group => "Gentlemen")
+    @products_active = Product.where(:target_group => "Gentlemen", active: true)
+    @products_inactive = Product.where(:target_group => "Gentlemen", active: false)
   end
 
 
   def girl
-    @products = Product.where(:target_group => "Girls")
+    @products_active = Product.where(:target_group => "Girls", active: true)
+    @products_inactive = Product.where(:target_group => "Girls", active: false)
   end
 
   def boy
-    @products = Product.where(:target_group => "Boys")
+    @products_active = Product.where(:target_group => "Boys", active: true)
+    @products_inactive = Product.where(:target_group => "Boys", active: false)
   end
 
   def baby
-    @products = Product.where(:target_group => "Babies")
+    @products_active = Product.where(:target_group => "Babies", active: true)
+    @products_inactive = Product.where(:target_group => "Babies", active: false)
   end
 
   def last
-    @products = Product.last(3)
-    
+    @products_active = Product.where(active: true).last(3)
   end
 
 
