@@ -13,6 +13,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :resize_to_fit => [300, 300]
   end
 
+  version :home_thumb do
+  process :resize_to_fit => [320, 150]
+  end
+
+
 
   # Choose what kind of storage to use for this uploader:
   storage :file
