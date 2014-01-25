@@ -36,16 +36,16 @@
           </label>
           <div class="col-lg-8 col-lg-offset-2">
               <div class="radio">
-                  <label>
-                      <input id="optionsRadios1" type="radio" checked="" value="true" name="optionsRadios"></input>
-                            <option selected>available</option>
-                  </label>
+                                 
+                <%= f.label :active, "Availbale", :value => "true" %>
+                
+                <%= f.radio_button :active, "true", checked: true %>
               </div>
+
               <div class="radio">
-                  <label>
-                      <input id="optionsRadios2" type="radio" value="false" name="optionsRadios"></input>
-                            currently not available
-                  </label>
+                <%= f.label :active, "Currently not available", :value => "false"  %>
+                
+                <%= f.radio_button :active, "false" %> 
               </div>
           </div>
 
