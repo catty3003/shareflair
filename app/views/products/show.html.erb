@@ -51,6 +51,10 @@
                       <strong>Duration:</strong>
                       <%= @product.duration %>
                     </li>
+                    <li>
+                      <strong>Available:</strong>
+                      <%= @product.active%>
+                    </li>
                   </ul>
 
             <%= link_to 'Back to All Products', products_path, class: "btn btn-info "  %> |

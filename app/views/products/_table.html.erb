@@ -23,6 +23,7 @@
                             
                             <th>Image</th>      
                             <th>User</th>
+                            <th>Available</th>
                         </tr>
                     </thead>
     
@@ -40,6 +41,8 @@
                           
                           <td><%= image_tag product.image_url(:thumb) if product.image? %></td>
                           <td><%= product.user.username %></td>
+
+                          <td><%= product.active %></td>
                           
                         </tr>
                       <% end %>
