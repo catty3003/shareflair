@@ -3,13 +3,14 @@
 
 <div class="bs-docs-section">
 
-  
+
               
     <div class="row">
         <div class="col-lg-12">
             <div class="page-header">
                 <h1 id="tables">
-                    Availbale Products
+                    Availbale Products <br> 
+                    <small><%= pluralize(@products_active.count, "Product") %></small>
                 </h1>
             </div>
 
@@ -21,7 +22,8 @@
         <div class="col-lg-12">
             <div class="page-header">
                 <h1 id="tables">
-                    Currently Not Available
+                    Currently Not Available <br> 
+                    <small><%= pluralize(@products_inactive.count, "Product") %>
                 </h1>
             </div>
 
