@@ -21,6 +21,30 @@ h1 {
 
 
 
-.tabdata{ 
+.table > tbody > tr > td{ 
     vertical-align: middle;
+}
+
+a.menue, a.menue:link, a.menue:visited, a.menue:active {
+position: relative;
+text-decoration: none;
+}
+
+a.menue:hover {
+z-index:1000;
+background: transparent;
+}
+
+a.menue span {
+display: none;
+text-decoration: none;
+}
+
+a.menue:hover span {
+z-index:1;
+display: block;
+position: absolute;
+bottom: 0px;
+left: 0px;
+padding: 0px;
 }

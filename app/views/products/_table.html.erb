@@ -75,20 +75,18 @@
       <tbody>
         <% products.each do |product| %>
           <tr>
-            <td class="table"><h4><%= link_to product.title, product_path(product) %></h4></td>
-            <td ><%= product.category.name %></td>
+            <td width="400"><h4><%= link_to product.title, product_path(product) %></h4></td>
+            <td><a class="menue">
+              <%= image_tag product.image_url(:thumb) if product.image? %>
+              <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a>
+            <td><%= product.category.name %></td>
             <td><%= product.target_group %></td>
             <td><%= product.size %></td>
             <td><%= product.color %></td>
             <td><%= product.price %></td>
             <td><%= product.duration %></td>
-            
-            <td><%= image_tag product.image_url(:thumb) if product.image? %></td>
-            <td><%= product.user.username %></td>
+            <td><%= product.user.username %></td></tr>
 
-            
-            
-          </tr>
         <% end %>
       </tbody>
   </table>
