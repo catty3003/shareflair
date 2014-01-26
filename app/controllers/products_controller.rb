@@ -6,12 +6,17 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
-  def index
-   
-    s = "%#{params[:search]}%"
-    @products_active = Product.where(active: true).order(created_at: :desc).where("title like ? or description like ?", s, s  )
-    @products_inactive = Product.where(active: false).order(updated_at: :desc).where("title like ? or description like ?", s, s  )
-
+  def index   
+    
+      s = "%#{params[:search]}%"
+      if params[:sorting]
+      @products_active = Product.where(active: true).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
+      @products_inactive = Product.where(active: false).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
+    else 
+      
+      @products_active = Product.where(active: true).order(created_at: :desc).where("title like ? or description like ?", s, s  )
+      @products_inactive = Product.where(active: false).order(updated_at: :desc).where("title like ? or description like ?", s, s  )
+    end
   end
 
   # GET /products/1

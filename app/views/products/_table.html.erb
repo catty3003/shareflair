@@ -2,16 +2,72 @@
   <table class="table table-striped table-bordered table-hover ">
       <thead>
           <tr>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Target group</th>
-              <th>Size</th>
-              <th>Color</th>
-              <th>Price in €</th>
-              <th>Price related to</th>
+              
+              <th>
+                  <% if params[:sorting] == "title" %>
+                    Title
+                  <% else %>
+                    <%= link_to "Title", products_path(sorting: "title") %>
+                  <% end %>
+              </th>
+              
+              <th>
+                  <% if params[:sorting] == "category_id" %>
+                    Category
+                  <% else %>
+                    <%= link_to "Category", products_path(sorting: "category_id") %>
+                  <% end %>
+              </th>
+              
+              <th>
+                  <% if params[:sorting] == "target_group" %>
+                    Target Group
+                  <% else %>
+                    <%= link_to "Target Group", products_path(sorting: "target_group") %>
+                  <% end %>
+              </th>
+
+              <th>
+                  <% if params[:sorting] == "size" %>
+                    Size 
+                  <% else %>
+                    <%= link_to "Size", products_path(sorting: "size") %>
+                  <% end %>
+              </th>
+              
+              <th>
+                  <% if params[:sorting] == "color" %>
+                    Color
+                  <% else %>
+                    <%= link_to "Color", products_path(sorting: "color") %>
+                  <% end %>
+              </th>
+
+              <th>
+                  <% if params[:sorting] == "price" %>
+                    Price in € 
+                  <% else %>
+                    <%= link_to "Price in €", products_path(sorting: "price") %>
+                  <% end %>
+              </th>
+              <th>
+                  <% if params[:sorting] == "duration" %>
+                    Price related to
+                  <% else %>
+                    <%= link_to "Price related to", products_path(sorting: "duration") %>
+                  <% end %>
+              </th>
               
               <th>Image</th>      
-              <th>User</th>
+              
+              <th>
+                  <% if params[:sorting] == "user_id" %>
+                    User
+                  <% else %>
+                    <%= link_to "User", products_path(sorting: "user_id") %>
+                  <% end %>
+              </th>
+              
               <th>Available</th>
               <th>Available checkbox</th>
           </tr>
