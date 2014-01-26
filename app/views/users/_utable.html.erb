@@ -1,0 +1,40 @@
+<div class="bs-docs-section">
+
+  
+              
+  <div class="bs-example table-responsive">
+    <table class="table table-striped table-bordered table-hover ">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Products</th>
+
+                
+            </tr>
+        </thead>
+
+
+        <tbody>
+
+          <% @users.each do |u| %>
+            <tr>              
+              
+              <td><h4><%= u.username %><h4></td>
+              <td><%= u.gender %></td>
+              <td><%= u.city %></td>
+              <td><%= link_to pluralize(u.products.count, "Product")%></td>
+                                    
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+</div>
+  
+
+</div>
+
+
+
+

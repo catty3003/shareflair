@@ -77,7 +77,7 @@
       <tbody>
         <% products.each do |product| %>
           <tr>
-            <td width="400"><h4><%= link_to product.title, product_path(product) %></h4></td>
+            <td width="30%"><h4><%= link_to product.title, product_path(product) %></h4></td>
             <td><a class="menue">
               <%= image_tag product.image_url(:thumb) if product.image? %>
               <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a>
