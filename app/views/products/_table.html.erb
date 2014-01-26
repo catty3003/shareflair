@@ -67,9 +67,7 @@
                     <%= link_to "User", products_path(sorting: "user_id") %>
                   <% end %>
               </th>
-              
-              <th>Available</th>
-              <th>Available checkbox</th>
+             
           </tr>
       </thead>
 
@@ -88,12 +86,7 @@
             <td><%= image_tag product.image_url(:thumb) if product.image? %></td>
             <td><%= product.user.username %></td>
 
-            <td><%= product.active %></td>
-            <td>
-              <%= form_for product do |f| %>
-                <%= f.check_box :active, class: "checkable" %>
-              <% end %>
-            </td>
+            
             
           </tr>
         <% end %>

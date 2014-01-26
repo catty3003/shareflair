@@ -22,10 +22,10 @@
               <%= f.email_field :email, :autofocus => true, class: "form-control"  %></div>
 
               <div class="form-group has-success"><%= f.label :username %><br />
-              <%= f.text_field :username, class: "form-control"  %></div>
+              <%= f.text_field :username, class: "form-control"  %></div>            
 
               <div class="form-group has-success"><%= f.label :gender %><br />
-              <%= f.text_field :gender, class: "form-control"  %></div>
+              <%= f.select :gender, ["Woman", "Man" ], {:include_blank => true}, class: "form-control"  %></div>
 
                <div class="form-group has-success"><%= f.label :address %><br />
               <%= f.text_field :address, class: "form-control"  %></div>

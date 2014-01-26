@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :lady, :man, :girl, :boy, :baby, :last]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_product_identification, only: [ :edit, :update, :destroy]
   
@@ -102,7 +102,7 @@ class ProductsController < ApplicationController
   end
 
   def last
-    @products_active = Product.where(active: true).last(3)
+    @products_active = Product.where(active: true).last(10)
   end
 
 
@@ -123,6 +123,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :category_id, :target_group, :size, :color, :price, :duration, :description, :user_id, :image, :remote_image_url)
+      params.require(:product).permit(:title, :active, :category_id, :target_group, :size, :color, :price, :duration, :description, :user_id, :image, :remote_image_url)
     end
 end

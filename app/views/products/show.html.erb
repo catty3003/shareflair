@@ -53,7 +53,16 @@
                     </li>
                     <li>
                       <strong>Available:</strong>
-                      <%= @product.active%>
+                      <%= form_for @product do |f| %>              
+                      <div class ="radio">
+                        <%= f.label :active, "avaiable" %>
+                        <%= f.radio_button :active, true, class: "checkable" %> 
+                      </div>
+                      <div class ="radio">
+                        <%= f.label :active, "not available" %>
+                        <%= f.radio_button :active, false, class: "checkable"%>
+                       </div>
+                       <% end %>
                     </li>
                   </ul>
 
