@@ -1,6 +1,12 @@
 Shareflair::Application.routes.draw do
   
   
+  get "users/index"
+  get "users/new"
+  get "users/show"
+  get "users/edit"
+  get "users/destroy"
+  get "users/create"
   devise_for :users
   get "home/index"
   get "home/user"
@@ -12,6 +18,7 @@ Shareflair::Application.routes.draw do
   get "products/baby"
   get "products/last"
   resources :products
+  resources :user
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
