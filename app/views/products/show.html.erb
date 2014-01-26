@@ -52,7 +52,7 @@
                       <%= @product.duration %>
                     </li>
                     <li>
-                      <strong>Available:</strong>
+                      <strong>My Product is:</strong> 
                       <%= form_for @product do |f| %>              
                       <div class ="radio">
                         <%= f.label :active, "avaiable" %>
@@ -62,7 +62,8 @@
                         <%= f.label :active, "not available" %>
                         <%= f.radio_button :active, false, class: "checkable"%>
                        </div>
-                       <% end %>
+                       <% end %>                      
+                      <p><small>Owners can change availability by choosing the appropriate option</small></p>
                     </li>
                   </ul>
 

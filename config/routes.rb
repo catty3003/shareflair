@@ -2,11 +2,7 @@ Shareflair::Application.routes.draw do
   
   
   get "users/index"
-  get "users/new"
-  get "users/show"
-  get "users/edit"
-  get "users/destroy"
-  get "users/create"
+
   devise_for :users
   get "home/index"
   get "home/user"
