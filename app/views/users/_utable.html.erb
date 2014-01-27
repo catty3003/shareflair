@@ -21,19 +21,17 @@
           <% @users.each do |u| %>
             <tr>              
               
-              <td><h4><%= u.username %><h4></td>
+              <td><h4><%= link_to u.username, users_profile_path(id: u.id)  %><h4></td>
               <td><%= u.gender %></td>
               <td><%= u.city %></td>
-              <td><%= link_to pluralize(u.products.count, "Product")%></td>
-                                    
-            </tr>
-          <% end %>
+              <td><%= link_to pluralize(u.products.count, "Product"),  users_profile_path(id: u.id)  %></td>
+              
+             <% end %>
         </tbody>
     </table>
+  </div>
 </div>
   
-
-</div>
 
 
 
