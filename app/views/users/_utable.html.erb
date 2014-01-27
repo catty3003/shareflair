@@ -8,6 +8,7 @@
             <tr>
                 <th>User</th>
                 <th>Gender</th>
+                <th>Typical Size</th>
                 <th>City</th>
                 <th>Products</th>
 
@@ -21,10 +22,11 @@
           <% @users.each do |u| %>
             <tr>              
               
-              <td><h4><%= link_to u.username, users_profile_path(id: u.id)  %><h4></td>
-              <td><%= u.gender %></td>
-              <td><%= u.city %></td>
-              <td><%= link_to pluralize(u.products.count, "Product"),  users_profile_path(id: u.id)  %></td>
+              <td width="20%"><h4><%= link_to u.username, users_profile_path(id: u.id)  %><h4></td>
+              <td width="20%"><%= u.gender %></td>
+              <td width="20%"><%= u.size %></td>
+              <td width="20%"><%= u.city %></td>
+              <td width="20%"><%= link_to pluralize(u.products.count, "Product"),  users_profile_path(id: u.id)  %></td>
               
              <% end %>
         </tbody>
