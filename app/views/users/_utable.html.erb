@@ -6,10 +6,38 @@
     <table class="table table-striped table-bordered table-hover ">
         <thead>
             <tr>
-                <th>User</th>
-                <th>Gender</th>
-                <th>Typical Size</th>
-                <th>City</th>
+                <th>
+                  <% if params[:sorting] == "username" %>
+                    User
+                  <% else %>
+                    <%= link_to "User", users_all_user_path(sorting: "username") %>
+                  <% end %>
+              </th>
+
+                <th>
+                  <% if params[:sorting] == "gender" %>
+                    Gender
+                  <% else %>
+                    <%= link_to "Gender", users_all_user_path(sorting: "gender") %>
+                  <% end %>
+              </th>
+
+                <th>
+                  <% if params[:sorting] == "size" %>
+                    Typical Size
+                  <% else %>
+                    <%= link_to "Typical Size", users_all_user_path(sorting: "size") %>
+                  <% end %>
+              </th>
+
+                <th>
+                  <% if params[:sorting] == "city" %>
+                    City
+                  <% else %>
+                    <%= link_to "City", users_all_user_path(sorting: "city") %>
+                  <% end %>
+              </th>
+
                 <th>Products</th>
 
                 
