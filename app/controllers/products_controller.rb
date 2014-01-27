@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :lady, :man, :girl, :boy, :baby, :last]
+  before_action :authenticate_user!, except: [:index, :show, :lady, :man, :girl, :boy, :baby, :last, :home, :about]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_product_identification, only: [ :edit, :update, :destroy]
   

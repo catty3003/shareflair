@@ -87,7 +87,7 @@
             <td><%= product.color %></td>
             <td><%= product.price %></td>
             <td><%= product.duration %></td>
-            <td><%= product.user.username %></td></tr>
+            <td><%= link_to product.user.username, users_profile_path(id: product.user.id) %></td></tr>
 
         <% end %>
       </tbody>
