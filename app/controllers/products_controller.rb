@@ -103,11 +103,16 @@ class ProductsController < ApplicationController
   end
 
   def last
-    @products_active = Product.where(active: true).last(10)
+    @products_active = Product.where(active: true).order(created_at: :desc).last(20)
   end
 
   def home
-  end
+    @productslady = Product.where(:target_group => "Ladies")
+    @productsgirl = Product.where(:target_group => "Girls")
+    @productsgent = Product.where(:target_group => "Gentlemen")
+    @productsboy = Product.where(:target_group => "Boys")
+    @productsbaby = Product.where(:target_group => "Babies")
+   end
 
   def about
   end

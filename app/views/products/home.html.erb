@@ -45,8 +45,10 @@
 	    <div class="thumbnail">
 	       <a href="products/lady"> <%= image_tag ("lady.jpg") %> </a> 
 	        <div class="caption">
+	        	<h4 class="pull-right"><%= pluralize(@productslady.count, "Product") %></h4>
 	            <h4>
 	            	<a href="products/lady">Ladies</a>
+	            	
 	            	
 	            </h4>
 	        </div>
@@ -57,8 +59,10 @@
 	    <div class="thumbnail">
 	        <a href="products/girl"> <%= image_tag ("girls.jpg") %> </a>
 	        <div class="caption">
+	        	<h4 class="pull-right"><%= pluralize(@productsgirl.count, "Product") %></h4>
 	            <h4>
 	            	<a href="products/girl">Girls</a>
+	            	
 	            </h4>
 	        </div>
 	  	</div>
@@ -68,8 +72,10 @@
 	    <div class="thumbnail">
 	       <a href="products/baby">  <%= image_tag ("baby.JPG") %>  </a>
 	        <div class="caption">
+	        	<h4 class="pull-right"><%= pluralize(@productsbaby.count, "Product") %></h4>
 	            <h4>
 	            	<a href="products/baby">Babies</a>
+	            	
 	            </h4>
 	        </div>
 	  	</div>
@@ -79,8 +85,10 @@
 	    <div class="thumbnail">
 	       <a href="products/man"> <%= image_tag ("gents.jpg") %> </a>
 	        <div class="caption">
+	        	<h4 class="pull-right"><%= pluralize(@productsgent.count, "Product") %></h4>
 	            <h4>
 	            	<a href="products/man">Gentlemen</a>
+	            	
 	            </h4>
 	        </div>
 	  	</div>
@@ -89,7 +97,9 @@
 	<div class="col-sm-4 col-lg-4 col-md-4">
 	    <div class="thumbnail">
 	        <a href="products/boy"> <%= image_tag ("boy.jpg") %> </a>
+	        
 	        <div class="caption">
+	        	<h4 class="pull-right"><%= pluralize(@productsboy.count, "Product") %></h4>
 	            <h4>
 	            	<a href="products/boy">Boys</a>
 	            </h4>
@@ -102,7 +112,7 @@
 	        <a href="products/last"> <%= image_tag ("mk2.jpg") %> </a>
 	        <div class="caption">
 	            <h4>
-	            	<a href="products/last">Most Recent</a>
+	            	<a href="products/last">Lastest 20 Articles </a>
 	            </h4>
 	        </div>
 	  	</div>
@@ -110,5 +120,3 @@
                    
 </div>
 
-
-  
