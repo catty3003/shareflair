@@ -106,6 +106,12 @@ class ProductsController < ApplicationController
     @products_active = Product.where(active: true).last(10)
   end
 
+  def home
+  end
+
+  def about
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

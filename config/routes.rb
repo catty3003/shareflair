@@ -3,6 +3,9 @@ Shareflair::Application.routes.draw do
   
   get "users/all_user"
   get "users/profile"
+
+  get "products/home"
+  get "products/about"
  
 
   devise_for :users
@@ -21,7 +24,7 @@ Shareflair::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'products#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
