@@ -3,72 +3,16 @@
       <thead>
           <tr>
               
-              <th>
-                  <% if params[:sorting] == "title" %>
-                    Title
-                  <% else %>
-                    <%= link_to "Title", products_path(sorting: "title") %>
-                  <% end %>
-              </th>
-
-               <th>Image</th>  
-              
-              <th>
-                  <% if params[:sorting] == "category_id" %>
-                    Category
-                  <% else %>
-                    <%= link_to "Category", products_path(sorting: "category_id") %>
-                  <% end %>
-              </th>
-              
-              <th>
-                  <% if params[:sorting] == "target_group" %>
-                    Target Group
-                  <% else %>
-                    <%= link_to "Target Group", products_path(sorting: "target_group") %>
-                  <% end %>
-              </th>
-
-              <th>
-                  <% if params[:sorting] == "size" %>
-                    Size 
-                  <% else %>
-                    <%= link_to "Size", products_path(sorting: "size") %>
-                  <% end %>
-              </th>
-              
-              <th>
-                  <% if params[:sorting] == "color" %>
-                    Color
-                  <% else %>
-                    <%= link_to "Color", products_path(sorting: "color") %>
-                  <% end %>
-              </th>
-
-              <th>
-                  <% if params[:sorting] == "price" %>
-                    Price in € 
-                  <% else %>
-                    <%= link_to "Price in €", products_path(sorting: "price") %>
-                  <% end %>
-              </th>
-              <th>
-                  <% if params[:sorting] == "duration" %>
-                    Price related to
-                  <% else %>
-                    <%= link_to "Price related to", products_path(sorting: "duration") %>
-                  <% end %>
-              </th>
-              
-                 
-              
-              <th>
-                  <% if params[:sorting] == "user_id" %>
-                    Availability
-                  <% else %>
-                    <%= link_to "Availability", products_path(sorting: "user_id") %>
-                  <% end %>
-              </th>
+              <th>Title</th>
+              <th>Image</th> 
+              <th>Category</th>
+              <th>Target group</th>
+              <th>Size</th>
+              <th>Color</th>
+              <th>Price in €</th>
+              <th>Price related to</th>
+              <th>Availability</th>                           
+                            
              
           </tr>
       </thead>
@@ -80,7 +24,7 @@
             <td width="30%"><h4><%= link_to product.title, product_path(product) %></h4></td>
             <td><a class="menue">
               <%= image_tag product.image_url(:thumb) if product.image? %>
-              <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a>
+              <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a></td>
             <td><%= product.category.name %></td>
             <td><%= product.target_group %></td>
             <td><%= product.size %></td>
