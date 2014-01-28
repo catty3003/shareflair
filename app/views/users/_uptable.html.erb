@@ -19,13 +19,13 @@
 
 
       <tbody>
-        <% @user.products.each do |product| %>
+        <% @user.products.order(created_at: :desc).each do |product| %>
           <tr>
             <td width="30%"><h4><%= link_to product.title, product_path(product) %></h4></td>
             <td><a class="menue">
               <%= image_tag product.image_url(:thumb) if product.image? %>
               <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a></td>
-            <td><%= product.category.name %></td>
+            <td><%= product.category.name%></td>
             <td><%= product.target_group %></td>
             <td><%= product.size %></td>
             <td><%= product.color %></td>

@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:profile]
   
-  def all_user
-    
+  def all_user   
 
      if params[:sorting]
       @users =User.all.order(params[:sorting] => :asc)
@@ -14,8 +13,7 @@ class UsersController < ApplicationController
 
 
   def profile
-
-     
+       
     
   end
   
