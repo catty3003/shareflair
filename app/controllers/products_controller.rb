@@ -7,18 +7,34 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index   
-    @products
+    Product.joins(:category_id, :category)
+    Product.joins(:user_id, :user)
     
     s = "%#{params[:search]}%"
     if params[:sorting]
       @products_active = Product.where(active: true).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
+      @products_active = @products_active.where(category_id: params[:category_id]) if params[:category_id]
+      @products_active = @products_active.where(target_group: params[:target_group]) if params[:target_group]
+      @products_active = @products_active.where(size: params[:size]) if params[:size]
+
+
       @products_inactive = Product.where(active: false).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
+      @products_inactive = @products_inactive.where(category_id: params[:category_id]) if params[:category_id]
+      @products_inactive = @products_inactive.where(target_group: params[:target_group]) if params[:target_group]
+      @products_inactive = @products_inactive.where(size: params[:size]) if params[:size]
+
     else 
       
       @products_active = Product.where(active: true).order(created_at: :desc).where("title like ? or description like ?", s, s  )
       @products_active = @products_active.where(category_id: params[:category_id]) if params[:category_id]
+      @products_active = @products_active.where(target_group: params[:target_group]) if params[:target_group]
+      @products_active = @products_active.where(size: params[:size]) if params[:size]
+
       @products_inactive = Product.where(active: false).order(updated_at: :desc).where("title like ? or description like ?", s, s  )
       @products_inactive = @products_inactive.where(category_id: params[:category_id]) if params[:category_id]
+      @products_inactive = @products_inactive.where(target_group: params[:target_group]) if params[:target_group]
+      @products_inactive = @products_inactive.where(size: params[:size]) if params[:size]
+
     end
   end
 

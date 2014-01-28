@@ -1,5 +1,11 @@
 <%= form_tag("/products", method: "get")  do %>
                   
-	<%= select_tag :category_id, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }) %>
+	<%= select_tag :category_id, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }), { :include_blank => true} %>
+	<%= select_tag :target_group, options_for_select(Product.all.collect {|c| [ c.target_group] }), { :include_blank => true} %>
+	<%= select_tag :size, options_for_select(Product.all.collect {|c| [ c.size] }), { :include_blank => true} %>
+
+
 	<%= submit_tag("Search") %>
+
+
 <% end %>
