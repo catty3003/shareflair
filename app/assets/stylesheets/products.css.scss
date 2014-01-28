@@ -1,6 +1,7 @@
 body {
 padding-top: 70px;
-padding-bottom: 50px;
+padding-bottom: 10px;
+height: 100%;
 
 }
 
@@ -19,11 +20,25 @@ h1 {
   text-align: center;
 }
 
+footer{
+	margin-top: 50px;	
+	bottom: 0;
+	position: relative;
+  	
+}
+
+
+#f_id{
+	horizontal-align: middle;
+   	text-align: center;
+}
 
 
 .table > tbody > tr > td{ 
     vertical-align: middle;
 }
+
+/*CSS zum vergrößern vom Thumb*/
 
 a.menue, a.menue:link, a.menue:visited, a.menue:active {
 position: relative;

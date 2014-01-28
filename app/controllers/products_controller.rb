@@ -9,14 +9,16 @@ class ProductsController < ApplicationController
   def index   
     @products
     
-      s = "%#{params[:search]}%"
-      if params[:sorting]
+    s = "%#{params[:search]}%"
+    if params[:sorting]
       @products_active = Product.where(active: true).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
       @products_inactive = Product.where(active: false).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
     else 
       
       @products_active = Product.where(active: true).order(created_at: :desc).where("title like ? or description like ?", s, s  )
+      @products_active = @products_active.where(category_id: params[:category_id]) if params[:category_id]
       @products_inactive = Product.where(active: false).order(updated_at: :desc).where("title like ? or description like ?", s, s  )
+      @products_inactive = @products_inactive.where(category_id: params[:category_id]) if params[:category_id]
     end
   end
 
@@ -135,6 +137,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :title, :active, :category_id, :target_group, :size, :color, :price, :duration, :description, :user_id, :image, :remote_image_url)
+      params.require(:product).permit(:city, :name, :title, :active, :category_id, :target_group, :size, :color, :price, :duration, :description, :user_id, :image, :remote_image_url)
     end
 end

@@ -1,0 +1,5 @@
+<%= form_tag("/products", method: "get")  do %>
+                  
+	<%= select_tag :category_id, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }) %>
+	<%= submit_tag("Search") %>
+<% end %>

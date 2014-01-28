@@ -60,7 +60,14 @@
                   <% end %>
               </th>
               
-                 
+              <th>
+                  <% if params[:sorting] == "city" %>
+                    City
+                  <% else %>
+                    <%= link_to "City", products_path(sorting: "city") %>
+                  <% end %>
+              </th>
+               
               
               <th>
                   <% if params[:sorting] == "user_id" %>
@@ -87,6 +94,7 @@
             <td><%= product.color %></td>
             <td><%= product.price %></td>
             <td><%= product.duration %></td>
+            <td><%= product.user.city %></td>
             <td><%= link_to product.user.username, users_profile_path(id: product.user.id) %></td></tr>
 
         <% end %>
