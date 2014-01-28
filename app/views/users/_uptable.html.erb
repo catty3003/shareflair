@@ -64,9 +64,9 @@
               
               <th>
                   <% if params[:sorting] == "user_id" %>
-                    User
+                    Availability
                   <% else %>
-                    <%= link_to "User", products_path(sorting: "user_id") %>
+                    <%= link_to "Availability", products_path(sorting: "user_id") %>
                   <% end %>
               </th>
              
@@ -75,7 +75,7 @@
 
 
       <tbody>
-        <% products.each do |product| %>
+        <% @user.products.each do |product| %>
           <tr>
             <td width="30%"><h4><%= link_to product.title, product_path(product) %></h4></td>
             <td><a class="menue">
@@ -87,10 +87,15 @@
             <td><%= product.color %></td>
             <td><%= product.price %></td>
             <td><%= product.duration %></td>
-            <td><%= link_to product.user.username, users_profile_path(id: product.user.id) %></td></tr>
-
+            <td><% if product.active == true %>
+                      <p >yes</p>                    
+                    <% else %>
+                      <p>no</p>
+                    <% end %>
+            </td>
+          </tr>
         <% end %>
-      </tr>
+        
       </tbody>
   </table>
 </div>
