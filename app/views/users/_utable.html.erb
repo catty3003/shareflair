@@ -1,72 +1,67 @@
-<div class="bs-docs-section">
+         
+<div class="bs-example table-responsive">
+  <table class="table table-striped table-bordered table-hover ">
 
-  
-              
-  <div class="bs-example table-responsive">
-    <table class="table table-striped table-bordered table-hover ">
-        <thead>
-            <tr>
-                <th>
-                  <% if params[:sorting] == "username" %>
-                    User
-                  <% else %>
-                    <%= link_to "User", users_all_user_path(sorting: "username") %>
-                  <% end %>
-              </th>
+    <thead>
+        <tr>
+          <th>
+            <% if params[:sorting] == "username" %>
+              User
+            <% else %>
+              <%= link_to "User", users_all_user_path(sorting: "username") %>
+            <% end %>
+          </th>
 
-              <th>Avatar</th>
+          <th>Avatar</th>
 
-                <th>
-                  <% if params[:sorting] == "gender" %>
-                    Gender
-                  <% else %>
-                    <%= link_to "Gender", users_all_user_path(sorting: "gender") %>
-                  <% end %>
-              </th>
+          <th>
+            <% if params[:sorting] == "gender" %>
+              Gender
+            <% else %>
+              <%= link_to "Gender", users_all_user_path(sorting: "gender") %>
+            <% end %>
+          </th>
 
-                <th>
-                  <% if params[:sorting] == "size" %>
-                    Typical Size
-                  <% else %>
-                    <%= link_to "Typical Size", users_all_user_path(sorting: "size") %>
-                  <% end %>
-              </th>
+          <th>
+            <% if params[:sorting] == "size" %>
+              Typical Size
+            <% else %>
+              <%= link_to "Typical Size", users_all_user_path(sorting: "size") %>
+            <% end %>
+          </th>
 
-                <th>
-                  <% if params[:sorting] == "city" %>
-                    User
-                  <% else %>
-                    <%= link_to "City", users_all_user_path(sorting: "city") %>
-                  <% end %>
-              </th>
+          <th>
+            <% if params[:sorting] == "city" %>
+              City
+            <% else %>
+              <%= link_to "City", users_all_user_path(sorting: "city") %>
+            <% end %>
+          </th>
 
-                <th>Products</th>
-
-                
-            </tr>
-        </thead>
+          <th>Products</th>            
+        </tr>
+    </thead>
 
 
-        <tbody>
-
-          <% @users.each do |u| %>
-            <tr>              
-              
-              <td width="20%"><h4><%= link_to u.username, users_profile_path(id: u.id)  %><h4></td>
-              <td><a class="menue" width="20%">
-              <%= image_tag u.avatar_url(:thumb) if u.avatar? %>
-              <span><%= image_tag u.avatar_url(:normal2)  if u.avatar? %></span></a>
-              <td ><%= u.gender %></td>
-              <td ><%= u.size %></td>
-              <td ><%= u.city %></td>
-              <td ><%= link_to pluralize(u.products.count, "Product"),  users_profile_path(id: u.id,  anchor: "user_products")  %></td>
-              
-             <% end %>
-        </tbody>
-    </table>
-  </div>
+    <tbody>
+      <% @users.each do |u| %>
+      <tr>            
+        <td width="20%"><h4><%= link_to u.username, users_profile_path(id: u.id)  %><h4></td>
+        <td><a class="menue" width="20%">
+        <%= image_tag u.avatar_url(:thumb) if u.avatar? %>
+        <span><%= image_tag u.avatar_url(:normal2)  if u.avatar? %></span></a>
+        <td ><%= u.gender %></td>
+        <td ><%= u.size %></td>
+        <td ><%= u.city %></td>
+        <td ><%= link_to pluralize(u.products.count, "Product"),  users_profile_path(id: u.id,  anchor: "user_products")  %></td>
+      </tr>        
+      <% end %>      
+    </tbody>
+    
+  </table>
 </div>
-  
+
+
 
 
 

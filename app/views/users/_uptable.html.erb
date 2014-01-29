@@ -1,45 +1,42 @@
 <div class="bs-example table-responsive">
   <table class="table table-striped table-bordered table-hover ">
-      <thead>
-          <tr>
-              
-              <th>Title</th>
-              <th>Image</th> 
-              <th>Category</th>
-              <th>Target group</th>
-              <th>Size</th>
-              <th>Color</th>
-              <th>Price in €</th>
-              <th>Price related to</th>
-              <th>Availability</th>                           
-                            
-             
-          </tr>
-      </thead>
+    <thead>
+      <tr>              
+        <th>Title</th>
+        <th>Image</th> 
+        <th>Category</th>
+        <th>Target group</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>Price in €</th>
+        <th>Price related to</th>
+        <th>Availability</th>                           
+      </tr>
+    </thead>
 
 
-      <tbody>
-        <% @user.products.order(created_at: :desc).each do |product| %>
-          <tr>
-            <td width="30%"><h4><%= link_to product.title, product_path(product) %></h4></td>
-            <td><a class="menue">
-              <%= image_tag product.image_url(:thumb) if product.image? %>
-              <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a></td>
-            <td><%= product.category.name%></td>
-            <td><%= product.target_group %></td>
-            <td><%= product.size %></td>
-            <td><%= product.color %></td>
-            <td><%= product.price %></td>
-            <td><%= product.duration %></td>
-            <td><% if product.active == true %>
-                      <p >yes</p>                    
-                    <% else %>
-                      <p>no</p>
-                    <% end %>
-            </td>
-          </tr>
-        <% end %>
-        
-      </tbody>
+    <tbody>
+      <% @user.products.order(created_at: :desc).each do |product| %>
+      <tr>
+        <td width="30%"><h4><%= link_to product.title, product_path(product) %></h4></td>
+        <td><a class="menue">
+          <%= image_tag product.image_url(:thumb) if product.image? %>
+          <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a></td>
+        <td><%= product.category.name%></td>
+        <td><%= product.target_group %></td>
+        <td><%= product.size %></td>
+        <td><%= product.color %></td>
+        <td><%= product.price %></td>
+        <td><%= product.duration %></td>
+        <td><% if product.active == true %>
+                  <p >yes</p>                    
+                <% else %>
+                  <p>no</p>
+                <% end %>
+        </td>
+      </tr>
+      <% end %>      
+    </tbody>
+    
   </table>
 </div>

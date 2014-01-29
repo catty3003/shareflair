@@ -3,100 +3,95 @@
   <% if @product.errors.any? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</div>
+        <h3 class="panel-title"><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:
+      </div>
       <div class="panel-body">
         <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+          <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
 
-<div class="col-lg-8 col-lg-offset-2">
-   <div class="well">
-      <div class="panel panel-info">
-        <div class="panel-body">
+<div class="col-md-8 col-md-offset-2">
+  <div class="well">
+    <div class="panel panel-info">
+      <div class="panel-body">
 
         <div class="form-group has-success">
           <label class="control-label" for="inputSuccess"><%= f.label :title %></label>
-
           <%= f.text_field :title, class: "form-control" %>
         </div>
 
         <div class="form-group">
-
           <label class="control-label"><%= f.label :"My Product is currently ..." %></label>  
-            <div class ="radio">
-              <%= f.label :active, "avaiable" %>
-              <%= f.radio_button :active, true, :checked => true  %> 
-            </div>
-            <div class ="radio">
-              <%= f.label :active, "not available" %>
-              <%= f.radio_button :active, false%>
-             </div>
-
-          </div>        
-
-
-          <div class="form-group has-success">
-            <label class="control-label" for="inputSuccess"><%= f.label :category %></label>
-            
-            <%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, { :include_blank => true, :selected => @product.category_id}, class: "form-control" %>
+          <div class ="radio">
+            <%= f.label :active, "avaiable" %>
+            <%= f.radio_button :active, true, :checked => true  %> 
           </div>
-
-          <div class="form-group has-success">
-            <label class="control-label" for="inputSuccess"><%= f.label :target_group %></label>
-
-            <%= f.select :target_group, ["Ladies", "Girls", "Gentlemen", "Boys", "Babies" ], {:include_blank => true}, class: "form-control"  %>
+          <div class ="radio">
+            <%= f.label :active, "not available" %>
+            <%= f.radio_button :active, false%>
           </div>
-
-          <div class="form-group has-success">
-            <label class="control-label" for="inputSuccess"><%= f.label :size %></label>
-            <%= f.text_field :size, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :color %><br>
-            <%= f.text_field :color, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :"Price in € " %><br>
-            <%= f.text_field :price, :placeholder =>"any prices in € or 'negotiable'",  class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :"Price related to" %><br>
-            <%= f.text_field :duration, :placeholder =>"e.g days, week, month", class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.label :description %><br>
-            <%= f.text_area :description,  :placeholder =>"write a short description about your offer", class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :"Add Image" %><br>
-            <%= f.file_field :image  %>
-          </div>
-          <div class="form-group">
-            <%= f.label :remote_image_url, "or Image URL" %><br />
-            <%= f.text_field :remote_image_url, :placeholder =>"don't use this field if you upload a photo from your pc", class: "form-control" %>
-          </div>
-
-          </div>
-            </div>
-
-        <div class="actions">
-          <%= f.submit "Save Product", class: "btn btn-success"%>
-          <%= link_to 'Cancel', products_path, class: "btn btn-danger" %>
         </div>    
-      </div>
 
-    </div> 
-</div>
+        <div class="form-group has-success">
+          <label class="control-label" for="inputSuccess"><%= f.label :category %></label>          
+          <%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, { :include_blank => true, :selected => @product.category_id}, class: "form-control" %>
+        </div>
+
+        <div class="form-group has-success">
+          <label class="control-label" for="inputSuccess"><%= f.label :target_group %></label>
+          <%= f.select :target_group, ["Ladies", "Girls", "Gentlemen", "Boys", "Babies" ], {:include_blank => true}, class: "form-control"  %>
+        </div>
+
+        <div class="form-group has-success">
+          <label class="control-label" for="inputSuccess"><%= f.label :size %></label>
+          <%= f.text_field :size, class: "form-control"  %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :color %><br>
+          <%= f.text_field :color, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :"Price in € " %><br>
+          <%= f.text_field :price, :placeholder =>"any prices in € or 'negotiable'",  class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :"Price related to" %><br>
+          <%= f.text_field :duration, :placeholder =>"e.g days, week, month", class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :description %><br>
+          <%= f.text_area :description,  :placeholder =>"write a short description about your offer", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :"Add Image" %><br>
+          <%= f.file_field :image  %>
+        </div>
+        <div class="form-group">
+          <%= f.label :remote_image_url, "or Image URL" %><br />
+          <%= f.text_field :remote_image_url, :placeholder =>"don't use this field if you upload a photo from your pc", class: "form-control" %>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Save Product", class: "btn btn-success"%>
+      <%= link_to 'Cancel', products_path, class: "btn btn-danger" %>
+    </div>    
+  </div>
+
+</div> 
+
 
 <% end %>

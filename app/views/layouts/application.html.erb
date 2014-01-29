@@ -8,38 +8,31 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-    <!-- Add custom CSS here -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
-    
+    <!--custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">    
     <link href="http://bootswatch.com/amelia/bootstrap.css" rel="stylesheet"> 
-     <%= stylesheet_link_tag 'products.css' %>
-  
-    
-
-
+    <%= stylesheet_link_tag 'products.css' %>  
 </head>
 
 <body>
   <div class="container">
     <%= render 'layouts/navigation' %>
+  </div> 
 
-    <div class="container">
-      <%= render 'layouts/messages' %>
-      <%= yield %>
-    </div> 
+  <div class="container">
+    <%= render 'layouts/messages' %>
+    <%= yield %>  
+  </div>  
 
   <footer >
     <div class="row">
-        <div class="col-lg-12">
-            <p id="f_id">Copyright &copy; Mai Dinh Thanh</p>
-        </div>
+      <div class="col-md-12">
+        <p id="f_id">Copyright &copy; Mai Dinh Thanh</p>
+      </div>
     </div>
   </footer>
 
-
-
 </body>
-
 </html>
 
 

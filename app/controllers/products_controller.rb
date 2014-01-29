@@ -7,8 +7,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index   
-    Product.joins(:category_id, :category)
-    Product.joins(:user_id, :user)
+    Product.joins( :category)
+    Product.joins( :user)
     
     s = "%#{params[:search]}%"
     if params[:sorting]
@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
       @products_active = @products_active.where(category_id: params[:category_id]) if params[:category_id]
       @products_active = @products_active.where(target_group: params[:target_group]) if params[:target_group]
       @products_active = @products_active.where(size: params[:size]) if params[:size]
+
 
 
       @products_inactive = Product.where(active: false).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
@@ -133,6 +134,7 @@ class ProductsController < ApplicationController
    end
 
   def about
+    
   end
 
 
@@ -143,12 +145,12 @@ class ProductsController < ApplicationController
     end
 
 
-def set_product_identification
-      @product = Product.find(params[:id])
-      if @product.user_id != current_user.id
-        redirect_to product_path, alert: 'You can edit oder delete only your own Products.'
-      end
-end
+    def set_product_identification
+          @product = Product.find(params[:id])
+          if @product.user_id != current_user.id
+            redirect_to product_path, alert: 'You can edit oder delete only your own Products.'
+          end
+    end
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
