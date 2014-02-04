@@ -2,7 +2,7 @@
 
 one:
   title: MyString
-  category: MyString
+  category_id: 1
   target_group: MyString
   size: MyString
   color: MyString
@@ -10,14 +10,18 @@ one:
   duration: MyString
   description: MyText
   user_id: 1
+  active: false
 
 two:
   title: MyString
-  category: MyString
+  category_id: 1
   target_group: MyString
   size: MyString
   color: MyString
   price: MyString
   duration: MyString
   description: MyText
-  user_id: 1
+  user_id: 2
+  active: true
+
+

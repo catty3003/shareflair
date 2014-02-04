@@ -14,8 +14,8 @@ type12 = Category.create(name: "Anderes")
 
 
 
-user2 = User.create!(username: "Alice", email: 'alice@alice.com', :password => 'topsecret', :password_confirmation => 'topsecret')
-user1 = User.create!(username: "Bob", email: 'bob@bob.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+user2 = User.create!(username: "Alice", city: "Berlin", email: 'alice@alice.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+user1 = User.create!(username: "Bob", city: "Hamburg", email: 'bob@bob.com', :password => 'topsecret', :password_confirmation => 'topsecret')
 user1.products.create(title: "Bluse",	category_id: type2.id,	target_group: "Ladies",	size: "34",	color: "weis",	price: "5",	duration: "Woche",	description: "schöne Bluse", active: true	)
 user1.products.create(title: "Hemd",	category_id: type2.id,	target_group: "Gentlemen",	size: "s",	color: "blau",	price: "1",	duration: "Tag",	description: "slim fit", active: true)
 user2.products.create(title: "Jeans",	category_id: type3.id,	target_group: "Boys",	size: "32/34",	color: "dunkel blau",	price: "10",	duration: "Woche",	description: "mega", active: true	)
