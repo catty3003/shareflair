@@ -4,3 +4,4 @@
 $(document).on 'ready page:load', ->
   $(".checkable").click ->
     $(this).parents('form').submit();
+

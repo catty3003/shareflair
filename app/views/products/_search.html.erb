@@ -1,7 +1,32 @@
 <%= form_tag("/products", method: "get")  do %>   
-	<%= select_tag :category_id, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }) %>
-	<%= select_tag :target_group, options_for_select(Product.all.collect {|c| [ c.target_group] }) %>
-	<%= select_tag :size, options_for_select(Product.all.group("size").collect {|c| [ c.size] }) %>           
-	
-	<%= submit_tag("Search") %>
+<div class="row">
+
+  <div class="col-md-3">
+		<div class="form-group has-success">
+		  <label class="control-label" for="inputSuccess"><%= label_tag :category %></label>
+			<%= select_tag :category_id, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }), :multiple => true, class: "form-control" %>
+		</div>
+	</div>
+
+  <div class="col-md-3">
+		<div class="form-group has-success">
+		  <label class="control-label" for="inputSuccess"><%= label_tag :target_group %></label>
+			<%= select_tag :target_group, options_for_select(Product.all.group("target_group").collect {|c| [ c.target_group] }), :multiple => true,class: "form-control" %>
+		</div>
+	</div>
+
+  <div class="col-md-3">
+		<div class="form-group has-success">
+		  <label class="control-label" for="inputSuccess"><%= label_tag :size %></label>
+			<%= select_tag :size, options_for_select(Product.all.group("size").collect {|c| [ c.size] }), :multiple => true, class: "form-control" %>
+		</div>
+	</div>
+
+  <div class="col-md-3">
+  	<br><br><br><br>
+  	<%= submit_tag "Search" , class: "btn btn-success" %>
+		</div>		
+	</div>
+
+</div>
 <% end %>
