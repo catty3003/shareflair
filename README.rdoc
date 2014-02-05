@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+    Projekt-Name: Share Flair
+    Vor- und Nachnamen: Mai, Dinh Thanh 
+    Matrikel-Nummer: 374943
+    
 
-* Ruby version
+    Ausführliche Beschreibung:
+      Beschreibung des Projekts
+        	Die Idee des Projekts ist es, dass User eigene Kleidung mit anderen durch die Share Flair Webanwendung teilen können. Share Flair stellt also ein Marktplatz dar und vermittelt Anbietende und Suchende. Da keine Verträge über Shair Flair laufen sollen, übernimmt Shaire Flair keine rechtlichen Konsequenzen.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+        	Auf Shair Flair können eingelogte User ihr Kleidung anbieten. Um eingestellte Produkte anzusehen, bzw. die Kontaktdaten der Eigentümer einzusehen, dedarf es kein login, dies soll Ausleihvorgang erleichtern. Zum Ausleihen muss der Interessenten den Eigentümer per angegebene Kontaktdaten kontaktieren. 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+       
+       Beschreibung der technischen Umsetzung
+
