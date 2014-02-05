@@ -25,11 +25,14 @@
 
             <div class="row">
               <div class="col-md-4 " >
-                <div class="panel panel-primary">              
-                  <div class="panel-body">
-                    <%= image_tag @user.avatar_url(:avatar) if @user.avatar? %>
-                  </div>                  
-                </div>
+
+                <% if @user.avatar? %>
+                  <div class="panel panel-primary">              
+                    <div class="panel-body">
+                      <%= image_tag @user.avatar_url(:avatar) %>
+                    </div>                  
+                  </div>
+                <% end %>
 
                 <div class="panel panel-primary">
                   <div class="panel-heading">
@@ -37,16 +40,17 @@
                       How to contact me
                     </h3>
                   </div>
-                  <div class="panel-body">
-                   <h4> Phone: <%= @user.phone_number %> </h4> 
-                   <h4> E-mail:  <%= @user.email %>  </h4> 
-                   <h4> Adress: <%= @user.address %> </h4> 
+                  <div class="panel-body">                    
+                   <% if @user.phone_number? %><h4> Phone: <%= @user.phone_number %> </h4> <% end %>                   
+                   <h4> E-mail:  <%= @user.email %>  </h4>
+                   <% if @user.address? %> <h4> Adress: <%= @user.address %> </h4> <% end %>
                    <h4> City: <%= @user.city%> </h4> 
                   </div>                  
                 </div>
               </div>
 
               <div class="col-md-8" > 
+                <% if @user.description? or @user.gender? or @user.size? %> 
                 <div class="panel panel-info">
                   <div class="panel-heading">
                     <h3 class="panel-title">
@@ -55,11 +59,15 @@
                   </div>
                   <div class="panel-body">
                     <p> <%= @user.description %></p> 
-                    <h4> Gender:  <%= @user.gender %>  </h4> 
-                    <h4> Usually I use this size: <%= @user.size %> </h4>    
+                    <% if @user.gender? %><h4> Gender:  <%= @user.gender %>  </h4> <% end %>
+                    <% if @user.size? %><h4> Usually I use this size: <%= @user.size %> </h4>  <% end %>  
                     <h4> I live in: <%= @user.city%> </h4>                  
                   </div>                  
                 </div>
+                <% else %>
+                  <%= render "products/carousel"%>
+                <% end %> 
+
               </div>
           </div>
 

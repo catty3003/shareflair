@@ -20,10 +20,15 @@ h1 {
   text-align: center;
 }
 
-.thumbnail{
+#thumb{
   height: 300px;
 }
 
+#border{
+  border-width: 7px;   
+  border-color: #20B2AA; 
+  border-style: ridge;
+}
 
 footer{
 	margin-top: 50px;	

@@ -1,6 +1,6 @@
 <% @user.products.order(created_at: :desc).each do |product| %>
 <div class="col-md-3">
-    <div class="thumbnail">
+    <div class="thumbnail", id="thumb">
         <a class="menue">
           <%= image_tag product.image_url(:thumb) if product.image? %>
           <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a>
