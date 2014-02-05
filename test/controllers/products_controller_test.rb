@@ -12,7 +12,7 @@ class ProductsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:products_active)
-    assert_not_nil assigns(:products_inactive)    
+    assert_not_nil assigns(:products_inactive)
   end
 
   test "should get new" do

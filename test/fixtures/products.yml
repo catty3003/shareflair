@@ -21,7 +21,7 @@ two:
   price: MyString
   duration: MyString
   description: MyText
-  user_id: 2
+  user_id: 1
   active: true
 
 

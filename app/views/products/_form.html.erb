@@ -23,8 +23,8 @@
 
         <div class="form-group has-success">
           <label class="control-label" for="inputSuccess"><%= f.label :title %></label>
-          <%= f.text_field :title, class: "form-control" %>
-        </div>
+          <%= f.text_field :title, :maxlength => 120, class: "form-control" %>
+        </div> 
 
         <div class="form-group">
           <label class="control-label"><%= f.label :"My Product is currently ..." %></label>  

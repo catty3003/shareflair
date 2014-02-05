@@ -12,7 +12,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-	test "product can not be saved without title" do
+	test "product can not be saved without product" do
  		product = Product.new
  		assert !product.save
 	end
@@ -32,6 +32,11 @@ class ActiveSupport::TestCase
 	  p.image= "String"
 		assert p.save
 	end 
+
+	test "user can not be saved without user" do
+ 		user = User.new
+ 		assert !user.save
+	end
 
 end
 

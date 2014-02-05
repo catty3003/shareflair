@@ -1,0 +1,32 @@
+<% @user.products.order(created_at: :desc).each do |product| %>
+<div class="col-md-3">
+    <div class="thumbnail">
+        <a class="menue">
+          <%= image_tag product.image_url(:thumb) if product.image? %>
+          <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a>
+        <div class="caption">
+            <h4 class="pull-right">
+                <% if product.price? %>
+                <%= product.price %> € 
+                    <% if product.duration? %>
+                    per <%= product.duration %>
+                    <% end %>
+                <% end %>
+            </h4>                            
+            <h4><%= link_to product.title, product_path(product) %></h4>                        
+            <p>Size: <%= product.size %></p>
+            <p><% if product.color? %> 
+                Color: <%= product.color %>
+                <% end %>
+            </p>
+            <p><% if product.active == true %>
+                  <p >Product is available</p>                    
+                <% else %>
+                  <p>Product is currently not available</p>
+                <% end %>
+            </p>
+        </div>        
+    </div>
+</div>
+<% end %> 
+
