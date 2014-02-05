@@ -1,9 +1,13 @@
 <% @user.products.order(created_at: :desc).each do |product| %>
 <div class="col-md-3">
     <div class="thumbnail", id="thumb">
-        <a class="menue">
-          <%= image_tag product.image_url(:thumb) if product.image? %>
+        <% if product.image? %>
+        <a class="menue">          
+          <%= image_tag product.image_url(:thumb)  %>
           <span><%= image_tag product.image_url(:normal2)  if product.image? %></span></a>
+          <% else %>
+          <h3 id="pic">Share Flair</h3>
+          <% end %>
         <div class="caption">
             <h4 class="pull-right">
                 <% if product.price? %>

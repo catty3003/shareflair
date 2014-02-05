@@ -1,6 +1,3 @@
-== README
-
-
     Projekt-Name: Share Flair
     Vor- und Nachnamen: Mai, Dinh Thanh 
     Matrikel-Nummer: 374943
@@ -8,12 +5,44 @@
 
     Ausführliche Beschreibung:
       Beschreibung des Projekts
-        	Die Idee des Projekts ist es, dass User eigene Kleidung mit anderen durch die Share Flair Webanwendung teilen können. Share Flair stellt also ein Marktplatz dar und vermittelt Anbietende und Suchende. Da keine Verträge über Shair Flair laufen sollen, übernimmt Shaire Flair keine rechtlichen Konsequenzen.
+        	Die Idee des Projekts ist es, dass User eigene Kleidung mit anderen durch die Share Flair Webanwendung teilen können. Share Flair stellt also ein Marktplatz dar und vermittelt zwischen Anbietende und Suchende. Da keine Verträge über Share Flair laufen sollen, übernimmt Share Flair auch keine rechtlichen Konsequenzen.
 
-        	Auf Shair Flair können eingelogte User ihr Kleidung anbieten. Um eingestellte Produkte anzusehen, bzw. die Kontaktdaten der Eigentümer einzusehen, dedarf es kein login, dies soll Ausleihvorgang erleichtern. Zum Ausleihen muss der Interessenten den Eigentümer per angegebene Kontaktdaten kontaktieren. 
+        	Auf Share Flair können eingeloggte User ihr Kleidung anbieten. Um eingestellte Produkte anzusehen, bzw. die Kontaktdaten der Eigentümer einzusehen, bedarf es kein Login, dies soll den Ausleihvorgang erleichtern. Zum Ausleihen muss der Interessenten den Eigentümer per angegebene Kontaktdaten kontaktieren. 
+
+					Von der Navigationsleiste aus, können alle Funktionen erreicht werden: 
+					Alle Produkte anzeigen
+					neue Produkte inserieren 
+					alle User anzeigen
+					Volltextsuche nach Producttitel bzw. nach Produktbeschreibung
+					Login und sign up bzw. Logout und Profil bearbeiten
+					Startseite und Aboutseite aufrufen.
+
+					Von der Startseite aus können Interessenten Kleidung für bestimmte Zielgruppen anzeigen lassen.
+					Auf der All Products Seite können Filterungen durchgeführt werden. Nur bei Kriterien, die ausgewählt wurden, wird gefiltert. Dort wo keine Auswahl getätigt wurde, wird alles wieder gegeben. Neben der Filterungsmöglichkeit können User Sortierungen durchführen lassen. 
+
+					User können Produktdetails anzeigen lassen. Nur der eingeloggte Eigentümer kann den Status des Produktes auf der Produktdetailseite ändern. Außerdem erscheinen die Edit und Delete Button wenn das Produktdetailseite vom Eigentümer aufgemacht wird. Damit können Produktdaten verändert werden. Von dieser Seite aus, können nicht eingeloggte User zum der Profilseite vom Produkteigentümer gelangen, bzw. direkt zu anderen Angebote des Eigentümers. 
+
+					Auf der Userseite werden alle User und deren Angeboten angezeigt. Auch hier können Sortierungen durchgeführt werden. Von dieser Seite aus kann man auch zu Profilseite der User gelangen, sowie direkt zu deren Angebote. 
+
+					Von der Userprofilseite aus kann man wieder zu den Produktdetails gelangen. 
+
+      Beschreibung der technischen Umsetzung
+					Die Gestaltung der Oberfläche erfolgte hauptsächlich mit Bootstrapvorlage auf folgender Homepage: http://bootswatch.com/amelia/bootstrap.css. 
+
+					Es gibt 3 Model. Die Beziehung zwischen User und Produkt ist eine 1:n Beziehung: User has_many products und Product belongs_to user. Wenn ein User sein Account löscht, werden alle seine Produkte ebenfalls gelöscht (:dependent => :delete_all). Das 3. Model (Category) dient nur als Hilfe dazu, dass die User nur die angegebenen Kategorien auswählen können bei der Eingabe der durch das Formular (_form). Zwischen Category und Product besteht ebenfalls eine 1:n Beziehung. 
+
+					Es gibt 3 Controller: Application, Products und Users.  In Application-Controller wurden alle Parameter für den Sign up und Edit Methoden aufgeführt. Products- und Users-Controller enthalten alle Methoden, die die jeweiligen Views benötigen. 
+					Um Bilder hochzuladen wurden folgende Gem-Files verwendet: gem 'carrierwave' und gem 'mini_magick'. Für die Sicherheit (Login, Sign up) wurde gem 'devise' verwendet. 
+
+					Mit if und else Bedingungen konnten erreicht werden, dass nur Atributen mit Daten angezeigt werden. Bilder-felder ohne Bilder konnten so mit Placeholder ersetzt werden. Edit und Delete Button wird so nur angezeigt, wenn der User eingeloggt ist und das Produkt ihm gehört. Wenn der User sein Geschlecht angibt, konnten mit if else Bedingungen ebenfalls entsprechend der Zugehörigkeit der Produkte geschlechtspezifisch angesprochen werden. 
+
+					Für die Eingabeformulare und die Filterfunktionen wurden select_tag in Verbindung mit options_for_select verwendet. Die Vorgabe der Optionen bei der Eingabeformular dient dazu, Daten einheitliche zu gestalten um leicher groupieren zu können. Bei der Suchmaske wurde die Methode "group()" verwendet um mehrfache identische daten zu eliminieren. 
 
 
+			Verbesserung: 
+					Bei der Filterfunktion: Wenn ein Kriterien angewählt wurde, kann diese nicht rückgängig gemacht werden, man kann lediglich nur noch die kriterien ändern. Unselect-Funktion fehlt noch. 
+					Impressum fehlt ebenfalls. Aber da dies nur ein Projekt ist und nicht veröffentlich wird, ist noch kein Impressum nötig. 
 
-       
-       Beschreibung der technischen Umsetzung
-
+			Tests: 
+					Unittests läuft ohne Fehler
+					Functional test: noch 4 Errors
