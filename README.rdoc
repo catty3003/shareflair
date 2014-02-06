@@ -44,5 +44,4 @@
 					Impressum fehlt ebenfalls. Aber da dies nur ein Projekt ist und nicht veröffentlich wird, ist noch kein Impressum nötig. 
 
 			Tests: 
-					Unittests läuft ohne Fehler
-					Functional test: noch 4 Errors
+					rake test: fehlerfrei

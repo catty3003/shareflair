@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
+  include Category::TestHelpers
   setup do
     @product = products(:one)
     @user = users(:one)
