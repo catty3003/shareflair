@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index   
-
+    @products =Product.all
     
     s = "%#{params[:search]}%"
     if params[:sorting]

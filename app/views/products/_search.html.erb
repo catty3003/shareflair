@@ -11,9 +11,10 @@
   <div class="col-md-2">
 		<div class="form-group has-success">
 		  <label class="control-label" for="inputSuccess"><%= label_tag :target_group %></label>
-			<%= select_tag :target_group, options_for_select(Product.all.group("target_group").collect {|c| [ c.target_group, c.id] }), :multiple => true,class: "form-control" %>
+			<%= select_tag :target_group, options_from_collection_for_select(@people, 'id', 'target_group'), :multiple => true,class: "form-control" %>
 		</div>
 	</div>
+	select_tag 'person', options_from_collection_for_select(@people, 'id', 'name')
 
   <div class="col-md-2">
 		<div class="form-group has-success">
