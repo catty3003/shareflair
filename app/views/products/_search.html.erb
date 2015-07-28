@@ -8,26 +8,7 @@
 		</div>
 	</div>
 
-  <div class="col-md-2">
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputSuccess"><%= label_tag :target_group %></label>
-			<%= select_tag :target_group, options_for_select(Product.all.group("target_group").collect {|c| [ c.target_group, c.target_group] }), :multiple => true,class: "form-control" %>
-		</div>
-	</div>
 
-  <div class="col-md-2">
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputSuccess"><%= label_tag :size %></label>
-			<%= select_tag :size, options_for_select(Product.all.group("size").collect {|c| [ c.size, c.size] }), :multiple => true, class: "form-control" %>
-		</div>
-	</div>
-
-	<div class="col-md-2">
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputSuccess"><%= label_tag :color %></label>
-			<%= select_tag :color, options_for_select(Product.all.group("color").collect {|c| [ c.color, c.color] }), :multiple => true, class: "form-control" %>
-		</div>
-	</div>
 
 	<div class="col-md-2">
 		<div class="form-group has-success">
