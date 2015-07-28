@@ -7,24 +7,20 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index   
-    Product.joins( :category)
-    Product.joins( :user)
+
     
     s = "%#{params[:search]}%"
     if params[:sorting]
       @products_active = Product.where(active: true).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
       @products_active = @products_active.where(category_id: params[:category_id]) if params[:category_id]
-      @products_active = @products_active.where(target_group: params[:target_group]) if params[:target_group]
-      @products_active = @products_active.where(size: params[:size]) if params[:size]
-      @products_active = @products_active.where(color: params[:color]) if params[:color]
+
       @products_active = @products_active.where(user_id: params[:user_id]) if params[:user_id]
+
 
 
       @products_inactive = Product.where(active: false).order(params[:sorting] => :asc).where("title like ? or description like ?", s, s  )
       @products_inactive = @products_inactive.where(category_id: params[:category_id]) if params[:category_id]
-      @products_inactive = @products_inactive.where(target_group: params[:target_group]) if params[:target_group]
-      @products_inactive = @products_inactive.where(size: params[:size]) if params[:size]
-      @products_inactive = @products_inactive.where(color: params[:color]) if params[:color]
+
       @products_inactive = @products_inactive.where(user_id: params[:user_id]) if params[:user_id]
 
 
@@ -32,17 +28,13 @@ class ProductsController < ApplicationController
       
       @products_active = Product.where(active: true).order(updated_at: :desc).where("title like ? or description like ?", s, s  )
       @products_active = @products_active.where(category_id: params[:category_id]) if params[:category_id]
-      @products_active = @products_active.where(target_group: params[:target_group]) if params[:target_group]
-      @products_active = @products_active.where(size: params[:size]) if params[:size]
-      @products_active = @products_active.where(color: params[:color]) if params[:color]
+
       @products_active = @products_active.where(user_id: params[:user_id]) if params[:user_id]
 
 
       @products_inactive = Product.where(active: false).order(updated_at: :desc).where("title like ? or description like ?", s, s  )
       @products_inactive = @products_inactive.where(category_id: params[:category_id]) if params[:category_id]
-      @products_inactive = @products_inactive.where(target_group: params[:target_group]) if params[:target_group]
-      @products_inactive = @products_inactive.where(size: params[:size]) if params[:size]
-      @products_inactive = @products_inactive.where(color: params[:color]) if params[:color]
+
       @products_inactive = @products_inactive.where(user_id: params[:user_id]) if params[:user_id]
 
 
